@@ -7,7 +7,7 @@
 
 void end_get_stream(char *fileName)
 {
-	dprintf(STDERR_FILENO, "Error: Can't open file %s\n", fileName);
+	dprintf(2, "Error: Can't open file %s\n", fileName);
 	free_arguments();
 	exit(EXIT_FAILURE);
 }
