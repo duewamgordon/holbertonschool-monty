@@ -8,8 +8,8 @@ void run_opcode(void)
 {
 	stack_t *stack = NULL;
 
-	if (var_ptr->num_tok == 0)
+	if (arguments->num_tok == 0)
 		return;
 
-	var_ptr->line_instruc->f(&stack, var_ptr->line_number);
+	arguments->line_instruc->f(&stack, arguments->line_number);
 }

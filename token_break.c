@@ -9,30 +9,30 @@ void token_break(void)
 	int d = 0;
 	char *delims = "\n", *token = NULL, *lncpy = NULL;
 
-	lncpy = malloc(sizeof(char) * (strlen(var_ptr->text_line) + 1));
-	strcpy(lncpy, var_ptr->text_line);
-	var_ptr->num_tok = 0;
+	lncpy = malloc(sizeof(char) * (strlen(arguments->text_line) + 1));
+	strcpy(lncpy, arguments->text_line);
+	arguments->num_tok = 0;
 	token = strtok(lncpy, delims);
 	while (token)
 	{
-		var_ptr->num_tok += 1;
+		arguments->num_tok += 1;
 		token = strtok(NULL, delims);
 	}
 
-	var_ptr->tok = malloc(sizeof(char *) *
-			(var_ptr->num_tok +1));
-	strcpy(lncpy, var_ptr->text_line);
+	arguments->tok = malloc(sizeof(char *) *
+			(arguments->num_tok +1));
+	strcpy(lncpy, arguments->text_line);
 	token = strtok(lncpy, delims);
 
 	while (token)
 	{
-		var_ptr->tok[d] = malloc(sizeof(char) * (strlen(token) + 1)); 
-		if(var_ptr->tok[d] == NULL)
+		arguments->tok[d] = malloc(sizeof(char) * (strlen(token) + 1)); 
+		if(arguments->tok[d] == NULL)
 			end_malloc();
-		strcpy(var_ptr->tok[d], token);
+		strcpy(arguments->tok[d], token);
 		token = strtok(NULL, delims);
 		d++;
 	}
-	var_ptr->tok[d] = NULL;
+	arguments->tok[d] = NULL;
 	free(lncpy);
 }

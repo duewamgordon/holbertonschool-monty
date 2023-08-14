@@ -76,11 +76,11 @@ void stack(stack_t **stack, unsigned int line_number);
 
 
 int dprintf(int fd, const char *format, ...);
-size_t getline(char **text_lineptr, size_t *n, FILE *file_ptr);
+size_t getline(char **text_lineptr, size_t *n, FILE *file_stream);
 FILE *fdopen(int fd, const char *mode);
 
 void test_arg(int argc);
-void init_param(void);
+void init_arg(void);
 void end_malloc(void);
 void end_get_stream(char *fileName);
 void free_var_ptr(void);

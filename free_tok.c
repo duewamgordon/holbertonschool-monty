@@ -8,14 +8,14 @@ void free_tok(void)
 {
 	int d = 0;
 	
-	if (var_ptr->tok == NULL)
+	if (arguments->tok == NULL)
 		return;
 
-	while (var_ptr->tok[d])
+	while (arguments->tok[d])
 	{
-		free(var_ptr->tok[d]);
+		free(arguments->tok[d]);
 		d++;
 	}
-	free(var_ptr->tok);
-	var_ptr->tok = NULL;
+	free(arguments->tok);
+	arguments->tok = NULL;
 }	

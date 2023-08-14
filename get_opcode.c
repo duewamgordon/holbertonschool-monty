@@ -11,21 +11,19 @@ void get_opcode(void)
 		{"push", &push}, {"pall", &pall},
 		{"pint", &pint}, {"pop", &pop},
 		{"swap", &swap}, {"add", &add},
-		{"nop", &nop}, {"stack", &stack},
-		{"queue", &queue}, {"pstr", &pstr},
-		{"pchar", &pchar}, {"mod", &mod},
-		{NULL, NULL}
+		{"nop", &nop}, {NULL, NULL}
 	};
-	if (var_ptr->num_tok == 0)
+
+	if (arguments->num_tok == 0)
 		return;
 
 	for (; instructions[d].opcode != NULL; d++)
 	{
-		if (strcmp(instructions[d].opcode, var_ptr->tok[0])
+		if (strcmp(instructions[d].opcode, arguments->tok[0])
 				== 0)
 		{
-			var_ptr->line_instruc->opcode = instructions[d].opcode;
-			var_ptr->line_instruc->f = instructions[d].f;
+			arguments->line_instruc->opcode = instructions[d].opcode;
+			arguments->line_instruc->f = instructions[d].f;
 			return;
 		}
 	}

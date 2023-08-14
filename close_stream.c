@@ -6,9 +6,9 @@
 
 void close_stream(void)
 {
-	if (var_ptr->file_ptr == NULL)
+	if (arguments->file_stream == NULL)
 		return;
 
-	fclose(var_ptr->file_ptr);
-	var_ptr->file_ptr = NULL;
+	fclose(arguments->file_stream);
+	arguments->file_stream = NULL;
 }

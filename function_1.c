@@ -1,20 +1,19 @@
 #include "monty.h"
 
 /**
- * free_var_t - free memory
+ * free_arguments - free arguments
  */
 
-void free_var_ptr(void)  
+void free_arguments(void)  
 {
-	if (var_ptr != NULL) 
+	if (arguments != NULL) 
 	{
-        if (var_ptr->file_ptr != NULL)
+        if (arguments->file_stream != NULL)
 	{
-		fclose(var_ptr->file_ptr);
-		var_ptr->file_ptr = NULL;
+		fclose(arguments->file_stream);
+		arguments->file_stream = NULL;
         }
-        free(var_ptr);
-        var_ptr = NULL; 
+        free(arguments);
+        arguments = NULL; 
     }
 }
-
