@@ -6,6 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stddef.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack or queue
@@ -38,18 +39,20 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * struct var_s - hold variables
- * @file_ptr: ptr to a file stream
+ * struct arg_s - hold variables
+ * @file_stream: ptr to a file stream
  * @text_line: line of text read from the stream
- * @line_num: line number
+ * @line_number: line number
  * @num_tokens: number of tokens
  * @tok: store tokens
  * @line_instruc: instructions
+ * @stack_len: tracks the nodes in the stack
+ * @head: top of the stack
  *
  * Description: holds variables
  */
 
-typedef struct var_s
+typedef struct arg_s
 {
 	FILE *file_ptr;
 	char *text_line;
@@ -57,14 +60,29 @@ typedef struct var_s
 	int num_tok;
 	char **tok;
 	instruction_t *line_instruc;
-} var_t;
+	stack_t *head;
+	int stack_len;
+}arg_t;
 
-extern var_t *var_ptr;
+extern arg_t *arguments;
+
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
+
+
+int dprintf(int fd, const char *format, ...);
+size_t getline(char **text_lineptr, size_t *n, FILE *file_ptr);
+FILE *fdopen(int fd, const char *mode);
 
 void test_arg(int argc);
-void init_param();
+void init_param(void);
 void end_malloc(void);
-void end_get_stream(char *failedfile);
+void end_get_stream(char *fileName);
 void free_var_ptr(void);
 void handle_invalid_instruction(void);
 void token_break(void);
@@ -73,18 +91,7 @@ void get_opcode(void);
 void run_opcode(void);
 void close_stream(void);
 void free_tok(void);
-
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void mod(stack_t **stack, unsigned int line_number);
-void pchar(stack_t **stack, unsigned int line_number);
-void pstr(stack_t **stack, unsigned int line_number);
-void stack(stack_t **stack, unsigned int line_number);
-void queue(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *head);
+int check_num(char *str);
 
 #endif
