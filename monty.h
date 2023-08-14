@@ -54,7 +54,7 @@ typedef struct instruction_s
 
 typedef struct arg_s
 {
-	FILE *file_ptr;
+	FILE *file_stream;
 	char *text_line;
 	unsigned int line_number;
 	int num_tok;
@@ -62,6 +62,7 @@ typedef struct arg_s
 	instruction_t *line_instruc;
 	stack_t *head;
 	int stack_len;
+	int stack;
 }arg_t;
 
 extern arg_t *arguments;
@@ -72,18 +73,20 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void stack(stack_t **stack, unsigned int line_number);
 
 
 int dprintf(int fd, const char *format, ...);
-size_t getline(char **text_lineptr, size_t *n, FILE *file_stream);
+ssize_t getline(char **text_lineptr, size_t *n, FILE *file_stream);
 FILE *fdopen(int fd, const char *mode);
 
 void test_arg(int argc);
 void init_arg(void);
 void end_malloc(void);
 void end_get_stream(char *fileName);
-void free_var_ptr(void);
+void free_arguments(void);
+void free_args(void);
 void handle_invalid_instruction(void);
 void token_break(void);
 void handle_invalid_instruction(void);
@@ -93,5 +96,7 @@ void close_stream(void);
 void free_tok(void);
 void free_stack(stack_t *head);
 int check_num(char *str);
+void delete_stack_node(void);
+void free_head_node(void);
 
 #endif

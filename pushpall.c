@@ -7,30 +7,39 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	int value;
 	
-	if( var_ptr->num_tok < 2)
+	if (arguments->num_tok <= 1 || !(check_num(arguments->tok[1])))
 	{
-		fprintf(stderr, "L%u: usage: push int\n",line_number);
+		free_arguments();
+		dprintf(2, "L%d: usage: push integer\n",line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	value = (atoi(var_ptr->tok[1]));
-	stack_t *new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	*stack = malloc(sizeof(stack_t));
+	if (*stack == NULL)
+		end_malloc();
+	(*stack)->next = (*stack)->prev = NULL;
+	(*stack)->n = (int) atoi(arguments->tok[1]);
+	if (arguments->head == NULL)
+		arguments->head = *stack;
+	else
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		if(arguments->stack)
+		{
+			(*stack)->next = arguments->head;
+			arguments->head->prev = *stack;
+		}
+		else
+		{
+			stack_t *temp = arguments->head;
+
+			while (temp->next)
+				temp = temp->next;
+			temp->next = *stack;
+			(*stack)->prev = temp;
+		}
 	}
-
-	new_node->n = value;
-	new_node->prev = NULL;
-	new_node->next = *stack;
-
-    	if (*stack != NULL)
-		(*stack)->prev = new_node;
-		
-	*stack = new_node;
+	arguments->stack_len += 1;
 }
 
 /**
@@ -50,5 +59,3 @@ void pall(stack_t **stack, unsigned int line_number)
         current = current->next;
     }
 }
-
-

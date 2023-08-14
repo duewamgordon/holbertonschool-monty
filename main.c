@@ -20,10 +20,10 @@ int main(int argc, char **argv)
 	init_arg();
 	end_get_stream(argv[1]);
 
-	while (getline(&arguments->text_line, &n, arguments->file_stream != -1)
+	while (getline(&arguments->text_line, &n, arguments->file_stream) != -1)
 	{
 		arguments->line_number +=1;
-		token_line();
+		token_break();
 		get_opcode();
 		run_opcode();
 		free_tok();

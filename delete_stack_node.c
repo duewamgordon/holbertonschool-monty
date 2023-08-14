@@ -10,6 +10,6 @@ void delete_stack_node(void)
 	stack_t *temp;
 
 	temp = arguments->head;
-	argumetns->head = temp->next;
+	arguments->head = temp->next;
 	free(temp);
 }

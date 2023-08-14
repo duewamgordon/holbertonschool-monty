@@ -6,7 +6,7 @@
 
 void free_args (void)
 {
-	close_stream;
-	free_tok;
-	free_arguments;
+	close_stream();
+	free_tok();
+	free_arguments();
 }
