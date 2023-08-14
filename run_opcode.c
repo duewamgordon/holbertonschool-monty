@@ -10,6 +10,5 @@ void run_opcode(void)
 
 	if (arguments->num_tok == 0)
 		return;
-
 	arguments->line_instruc->f(&stack, arguments->line_number);
 }

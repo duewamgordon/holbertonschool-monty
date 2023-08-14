@@ -26,7 +26,7 @@ void get_stream(char *fileName)
 		end_get_stream(fileName);
 
 	arguments->file_stream = fdopen(fd, "r");
-	if (arguments->file_stream== NULL)
+	if (arguments->file_stream == NULL)
 	{
 		close(fd);
 		end_get_stream(fileName);

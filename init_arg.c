@@ -15,10 +15,10 @@ void init_arg()
 		end_malloc();
 
 	arguments->file_stream = NULL;
-	arguments->text_line = NULL;
-	arguments->line_number = 0;
-	arguments->num_tok = 0;
 	arguments->head = NULL;
+	arguments->text_line = NULL;
+	arguments->num_tok = 0;
+	arguments->line_number = 0;
 	arguments->stack_len = 0;
 	arguments->stack = 1;
 }
