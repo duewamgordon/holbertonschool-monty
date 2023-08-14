@@ -15,7 +15,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	value = (atoi(var_ptr->tok[1]);
+	value = (atoi(var_ptr->tok[1]));
 	stack_t *new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
@@ -25,9 +25,9 @@ void push(stack_t **stack, unsigned int line_number)
 
 	new_node->n = value;
 	new_node->prev = NULL;
-	new_node-> = *stack;
+	new_node->next = *stack;
 
-    	if (*stack != NULL
+    	if (*stack != NULL)
 		(*stack)->prev = new_node;
 		
 	*stack = new_node;
@@ -40,7 +40,10 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-    stack_t *current = *stack;
+	(void)line_number;
+	stack_t *current = *stack;
+    
+
     while (current != NULL)
     {
         printf("%d\n", current->n);
