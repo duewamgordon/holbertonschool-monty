@@ -75,7 +75,6 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
-
 int dprintf(int fd, const char *format, ...);
 ssize_t getline(char **text_lineptr, size_t *n, FILE *file_stream);
 FILE *fdopen(int fd, const char *mode);
@@ -87,7 +86,6 @@ void end_get_stream(char *fileName);
 void get_stream(char *fileName);
 void free_arguments(void);
 void free_args(void);
-void handle_invalid_instruction(void);
 void token_break(void);
 void handle_invalid_instruction(void);
 void get_opcode(void);

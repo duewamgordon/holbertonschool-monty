@@ -19,8 +19,7 @@ void get_opcode(void)
 
 	for (; instructions[d].opcode != NULL; d++)
 	{
-		if (strcmp(instructions[d].opcode, arguments->tok[0])
-				== 0)
+		if (strcmp(instructions[d].opcode, arguments->tok[0]) == 0)
 		{
 			arguments->line_instruc->opcode = instructions[d].opcode;
 			arguments->line_instruc->f = instructions[d].f;

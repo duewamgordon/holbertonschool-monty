@@ -5,9 +5,9 @@
  */
 void handle_invalid_instruction(void)
 {
-    dprintf(2, "L%d: unknown instructions %s\n", arguments->line_number, arguments->tok[0]);
-    close_stream();
-    free_tok();
+    dprintf(2, "L%d: unknown instructions %s\n",
+		    arguments->line_number, arguments->tok[0]);
+
     free_args();
     exit(EXIT_FAILURE); 
 }

@@ -19,8 +19,7 @@ void token_break(void)
 		token = strtok(NULL, delim);
 	}
 
-	arguments->tok = malloc(sizeof(char *) *
-			(arguments->num_tok +1));
+	arguments->tok = malloc(sizeof(char *) * (arguments->num_tok + 1));
 	strcpy(lncpy, arguments->text_line);
 	token = strtok(lncpy, delim);
 

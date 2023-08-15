@@ -11,7 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (arguments->num_tok <= 1 || !(check_num(arguments->tok[1])))
 	{
 		free_arguments();
-		dprintf(2, "L%d: usage: push integer\n",line_number);
+		dprintf(2, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -28,6 +28,7 @@ void push(stack_t **stack, unsigned int line_number)
 		{
 			(*stack)->next = arguments->head;
 			arguments->head->prev = *stack;
+			arguments->head = *stack;
 		}
 		else
 		{

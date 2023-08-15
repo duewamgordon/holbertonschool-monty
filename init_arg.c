@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * init_arg - initialize a pointer to var_s
+ * init_arg - initialize a pointer to arg_s
  */
 
 void init_arg(void)
