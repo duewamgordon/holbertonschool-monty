@@ -4,7 +4,7 @@
  * init_arg - initialize a pointer to var_s
  */
 
-void init_arg()
+void init_arg(void)
 {
 	arguments = malloc(sizeof(arg_t));
 	if (arguments == NULL)

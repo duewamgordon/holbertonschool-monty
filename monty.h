@@ -74,7 +74,6 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-void stack(stack_t **stack, unsigned int line_number);
 
 
 int dprintf(int fd, const char *format, ...);
@@ -85,6 +84,7 @@ void test_arg(int argc);
 void init_arg(void);
 void end_malloc(void);
 void end_get_stream(char *fileName);
+void get_stream(char *fileName);
 void free_arguments(void);
 void free_args(void);
 void handle_invalid_instruction(void);
