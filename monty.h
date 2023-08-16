@@ -53,13 +53,13 @@ typedef struct instruction_s
 
 typedef struct arg_s
 { 
-	FILE *file_stream; 
-	char *text_line; 
-	unsigned int line_number; 
-	int num_tok; 
+	FILE *file_stream;
+	char *text_line;
+	unsigned int line_number;
 	char **tok;
+	int num_tok;
 	instruction_t *line_instruc;
-        stack_t *head; 
+	stack_t *head;
         int stack_len; 
 	int stack; 
 
