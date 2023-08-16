@@ -6,15 +6,14 @@ arg_t *arguments = NULL;
 * main - Entry point
 * @argc: The number of command line arguments
 * @argv: A pointer to an array of the command line arguments
-*
 * Description: Print
-*
 * Return: 0
 */
 
 int main(int argc, char **argv)
 {	
 	size_t n = 0;
+
 	test_arg(argc);
 	init_arg();
 	get_stream(argv[1]);
