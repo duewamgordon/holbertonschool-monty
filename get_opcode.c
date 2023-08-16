@@ -9,6 +9,7 @@ void get_opcode(void)
 	int d = 0;
 	instruction_t instructions[] = {
 		{"push", &push}, {"pall", &pall},
+		{"pint", &pint},
 		{NULL, NULL}
 	};
 
