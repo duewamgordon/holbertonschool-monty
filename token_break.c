@@ -17,7 +17,6 @@ void token_break(void)
 	{
 
 		arguments->num_tok += 1;
-		printf("%s", token);
 		token = strtok(NULL, delims);
 	}
 

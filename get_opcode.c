@@ -9,12 +9,12 @@ void get_opcode(void)
 	int d = 0;
 	instruction_t instructions[] = {
 		{"push", &push}, {"pall", &pall},
-		{NULL, NULL},		
+		{NULL, NULL}
 	};
 
 	if (arguments->num_tok == 0)
 		return;
-
+	
 	for (; instructions[d].opcode != NULL; d++)
 	{
 		if (strcmp(instructions[d].opcode, arguments->tok[0]) == 0)
