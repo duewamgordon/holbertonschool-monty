@@ -18,4 +18,4 @@ void free_tok(void)
 	}
 	free(arguments->tok);
 	arguments->tok = NULL;
-}	
+}

@@ -7,7 +7,6 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	
 	if (arguments->num_tok <= 1 || !(check_num(arguments->tok[1])))
 	{
 		free_arguments();
