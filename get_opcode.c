@@ -9,9 +9,7 @@ void get_opcode(void)
 	int d = 0;
 	instruction_t instructions[] = {
 		{"push", &push}, {"pall", &pall},
-		{"pint", &pint}, {"pop", &pop},
-		{"swap", &swap}, {"add", &add},
-		{"nop", &nop}, {NULL, NULL}
+		{NULL, NULL},		
 	};
 
 	if (arguments->num_tok == 0)

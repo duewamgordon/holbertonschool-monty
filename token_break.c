@@ -15,9 +15,9 @@ void token_break(void)
 	token = strtok(lncpy, delims);
 	while (token)
 	{
-		printf(" %s\n", token);
 
 		arguments->num_tok += 1;
+		printf("%s", token);
 		token = strtok(NULL, delims);
 	}
 
