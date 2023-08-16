@@ -10,7 +10,8 @@ void get_opcode(void)
 	instruction_t instructions[] = {
 		{"push", &push}, {"pall", &pall},
 		{"pint", &pint}, {"pop", &pop},
-		{NULL, NULL}
+		{"swap", &swap}, {"add", &add},
+		{"nop", &nop}, {NULL, NULL}
 	};
 
 	if (arguments->num_tok == 0)
